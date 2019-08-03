@@ -58,6 +58,9 @@ externals.getInsertFields = (model, prefix) => {
 
 /**
  * Returns list of columns from input model which has `private` flags attached to it
+ * If a prefix input is given it appends that prefix with the column name for the query
+ * @param model : JSON
+ * @param prefix : String
  */
 externals.getPrivateFields = (model, prefix) => {
   let fields = [];
@@ -77,6 +80,8 @@ externals.getPrivateFields = (model, prefix) => {
  * It takes model and data json as input
  * values will be pulled from data json based on the model definition
  * It processes only non-auto fields
+ * @param model : JSON
+ * @param data : JSON (Key as column name and value as value for the column)
  */
 externals.getQueryValues = (model, data) => {
   const values = [];
@@ -93,8 +98,11 @@ externals.getQueryValues = (model, data) => {
 
 /**
  * Returns array of values for UPDATE query.
- * This parses values from data json based on the fields
- * If any value is missing for a column it will use the default values
+ * This parses values from data json based on the input fields array
+ * If any value is missing for a column in data object it will use the default values
+ * @param model : JSON
+ * @param fields : Array of string (column names)
+ * @param data : JSON (Key as column name and value as value for the column)
  */
 externals.getUpdateValues = (model, fields, data) => {
   const values = [];
@@ -119,6 +127,8 @@ externals.getUpdateValues = (model, fields, data) => {
 /**
  * Returns column default value
  * If there is no default value it returns null
+ * @param model : JSON
+ * @param field : String (column name from model)
  */
 externals.getDefaultValue = (model, field) => {
   for (let column of model.columns) {
