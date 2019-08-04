@@ -1,6 +1,6 @@
 {
   "name": "genql",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Helper for generating and formatting SQL queries",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "test": "node_modules/mocha/bin/mocha tests/*"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "lib/"
   ],
   "repository": {
     "type": "git",
