@@ -62,7 +62,9 @@ const QUERY_VALUES = [
 ];
 
 const UPDATE_VALUES = [
-  '{"json":"Arshad"}',
+  {
+    json: 'Arshad'
+  },
   'none',
   'active'
 ];

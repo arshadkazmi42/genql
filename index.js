@@ -6,6 +6,7 @@ const QueryValues = require('./lib/query-values');
 const UpdateValues = require('./lib/update-values');
 const DefaultValue = require('./lib/default-value');
 const ValuesPointer = require('./lib/values-pointer');
+const ModelField = require('./lib/model-field');
 
 
 module.exports = {
@@ -16,5 +17,6 @@ module.exports = {
   QueryValues,
   UpdateValues,
   DefaultValue,
-  ValuesPointer
+  ValuesPointer,
+  ModelField
 };
