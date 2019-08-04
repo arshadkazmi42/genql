@@ -1,0 +1,25 @@
+{
+  "name": "students",
+  "foreign_key": "students_id",
+  "join_key": "students",
+  "columns": [
+    {
+      "name": "id",
+      "auto": true
+    },
+    {
+      "name": "name"
+    },
+    {
+      "name": "email"
+    },
+    {
+      "name": "class"
+    },
+    {
+      "name": "status",
+      "defaultValue": "active"
+    }
+  ]
+}
+
