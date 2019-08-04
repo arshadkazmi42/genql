@@ -5,6 +5,7 @@ const PrivateFields = require('./lib/private-fields');
 const QueryValues = require('./lib/query-values');
 const UpdateValues = require('./lib/update-values');
 const DefaultValue = require('./lib/default-value');
+const ValuesPointer = require('./lib/values-pointer');
 
 
 module.exports = {
@@ -14,5 +15,6 @@ module.exports = {
   PrivateFields,
   QueryValues,
   UpdateValues,
-  DefaultValue
+  DefaultValue,
+  ValuesPointer
 };
