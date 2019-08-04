@@ -23,5 +23,9 @@
     "eslint-config-strongloop": "^2.1.0"
   },
   "author": "Arshad Kazmi",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "is-obj": "^2.0.0",
+    "lodash": "^4.17.15"
+  }
 }
