@@ -195,4 +195,8 @@ describe('test parser', () => {
     const blob = Parser.get('blob', BLOB_DATA);
     expect(blob).to.deep.equal(Buffer.from(JSON.parse(BLOB_DATA), 'utf8'));
   });
+  it('should return parsed json value', () => {
+    const blob = Parser.get('json', BLOB_DATA);
+    expect(blob).to.deep.equal(JSON.parse(BLOB_DATA), 'utf8');
+  });
 });
