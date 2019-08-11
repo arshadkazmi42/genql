@@ -6,12 +6,14 @@ const {
   InsertFields,
   JoinFields,
   PrivateFields,
+  Parser,
   QueryValues,
   SelectFields,
   UpdateValues,
   ValuesPointer
 } = require('../index');
 
+const BLOB_DATA = '{"type":"Buffer","data":[118,49,48,215,237,167,249,243,19,0,154,172,45,177,18,115,66,18,133,179,117,163,148,13,106,231,219,121,53,252,127,128,5,50,52,161,101,76,166,202,30,253,119,76,22,61,251,177,167,134,247,60,43,193,42,129,125,11,161,21,164,70,169,83,153,213,84,90,234,33,155,190,35,132,106,194,85,196,50,107,105,9,69,44,21,81,101,39,7,192,226,244,206,44,135,11,108,137,190,249,20,133,81,242,184,81,105,249,46,153,103,235,63,53,237,104,61,19,101,36,15,185,191,124,48,176,112,220,218,180,41,144,163,227,127,157,93,124,228,63,246,58,111,171,57,64,245]}';
 const FIELDS = ['name', 'class', 'status'];
 const MODEL = require('../data/model.json');
 const DATA = {
@@ -185,5 +187,16 @@ describe('test all update values', () => {
 
     const values = UpdateValues.get(MODEL, FIELDS, DATA);
     expect(values).to.deep.equal(UPDATE_VALUES);
+  });
+});
+
+describe('test parser', () => {
+  it('should return parsed buffer value', () => {
+    const blob = Parser.get('blob', BLOB_DATA);
+    expect(blob).to.deep.equal(Buffer.from(JSON.parse(BLOB_DATA), 'utf8'));
+  });
+  it('should return parsed json value', () => {
+    const blob = Parser.get('json', BLOB_DATA);
+    expect(blob).to.deep.equal(JSON.parse(BLOB_DATA), 'utf8');
   });
 });
