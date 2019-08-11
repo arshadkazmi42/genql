@@ -1,6 +1,6 @@
 {
   "name": "genql",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Helper for generating and formatting SQL queries",
   "main": "index.js",
   "scripts": {
