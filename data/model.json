@@ -15,7 +15,8 @@
       "private": true
     },
     {
-      "name": "class"
+      "name": "class",
+      "alternate": "cls"
     },
     {
       "name": "status",
