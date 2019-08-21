@@ -14,74 +14,79 @@ npm i genql
 
 ```javascript
 
-const { SelectFields } = require('genql');
+const GenQL = require('genql');
 const model = require('./data/model.json');
 
-const fields = SelectFields(model);
+const $ = new GenQL(model);
+const fields = $._select();
+const fieldPrefix = $._select('$');
 console.log(fields);
+console.log(fieldPrefix);
 
-// OUTPUT
+// OUTPUT -> {{fields}}
 // [
-//   'name',
-//   'email',
-//   'class',
-//   'status'
+//  'id',
+//  'name',
+//  'email',
+//  'COALESCE(NULLIF(class, ''), cls)',
+//  'status'
+// ]
+
+// OUTPUT -> {{fieldPrefix}}
+// [
+//  '$.id',
+//  '$.name',
+//  '$.email',
+//  'COALESCE(NULLIF($.class, ''), cls)',
+//  '$.status'
 // ]
 
 ```
 
 ## API
 
-- #### `DefaultValue.get(model, field)`
-  Takes model and field input, returns default value of the field if its available
-  - **Params**
-    - model (JSON)
+- **`_default(field)`**
+  - Returns default value for the field from model
+  - ***`Params`***
     - field (string)
 
-- #### `InsertFields.get(model, prefix={Optional})`
-  Returns list of column names which can be used in insert query
-  - **Params**
-    - model (JSON)
+- **`_insert(prefix)`**
+  - Returns all the fields from model, except the `auto` fields. Uses optional `prefix` and appends it to column name
+  - ***`Params`***
     - prefix (String) {Optional}
 
-- #### `JoinFields.get(model, prefix={Optional})`
-  Returns list of fields from model which can be used in join queries
-  - **Params**
-    - model (JSON)
+- **`_join(prefix)`**
+  - Returns all the fields from model, appended with `join_key` as prefix which is defined in model. Uses optional `prefix`  and appends it to column name
+  - ***`Params`***
     - prefix (String) {Optional}
 
-- #### `PrivateFields.get(model, prefix={Optional})`
-  Returns list of all private fields from the model
-  - **Params**
-    - model (JSON)
+- **`_findPrivate(prefix)`**
+  - Returns all the column which have `private` flag defined with it in the model. Uses optinal `prefix` and appends it to column names
+  - ***`Params`***
     - prefix (String) {Optional}
 
-- #### `QueryValues.get(model, data)`
-  Returns list of values for the model columns, picks data from `data` for every column in model
-  - **Param**
-    - model (JSON)
+- **`_removePrivate(data)`**
+  - Removes all the values from `data` object which are marked as private column in model
+  - ***`Params`***
+    - data {JSON}
+
+- **`_values(data)`**
+  - Returns list of values from data object for all the columns from model which are not marked as private
+  - ***`Params`***
     - data (JSON)
 
-- #### `SelectFields.get(model, prefix={Optional})`
-  Takes model input and returns list of select fields which can be used in select query
-  - **Param**
-    - model (JSON)
+- **`_select(prefix)`**
+  - Returns all the fields from model and uses alternate column if defined in model. Uses optional `prefix` and appends it to column name
+  - ***`Params`***
     - prefix (String) {Optional}
 
-- #### `UpdateFields.get(model, fields, data)`
-  Returns list of values from data for only the needed fields defined in fields list
-  - **Param**
-    - model (JSON)
+- **`_update(fields, data)`**
+  - Returns list of values from data for the input fields
+  - ***`Params`***
     - fields (Array)
     - data (JSON)
 
-#### Legends
-
-- `model` (JSON): JSON model based on the table structure
-- `prefix` (String)
-- `field`: (String)
-- `fields`: (Array) : List of fields
-- `data`: (Object JSON)
+> Note: Sample model definition is available in [data/model.json](data/model.json)
 
 
 ## Contributing
