@@ -1,5 +1,14 @@
 # genql
 
+[![Build](https://github.com/arshadkazmi42/genql/actions/workflows/nodejs.yml/badge.svg)](https://github.com/arshadkazmi42/genql/actions/workflows/nodejs.yml)
+[![NPM Version](https://img.shields.io/npm/v/genql.svg)](https://www.npmjs.com/package/genql)
+[![NPM Downloads](https://img.shields.io/npm/dt/genql.svg)](https://www.npmjs.com/package/genql)
+[![Github Repo Size](https://img.shields.io/github/repo-size/arshadkazmi42/genql.svg)](https://github.com/arshadkazmi42/genql)
+[![LICENSE](https://img.shields.io/npm/l/genql.svg)](https://github.com/arshadkazmi42/genql/blob/master/LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/arshadkazmi42/genql.svg)](https://github.com/arshadkazmi42/genql/graphs/contributors)
+[![Commit](https://img.shields.io/github/last-commit/arshadkazmi42/genql.svg)](https://github.com/arshadkazmi42/genql/commits/master)
+
+
 [![Build Status](https://api.travis-ci.com/arshadkazmi42/genql.svg?branch=master)](https://api.travis-ci.com/arshadkazmi42/genql)
 
 Helper for SQL query generating and formatting
