@@ -89,3 +89,10 @@ console.log(fieldPrefix);
 > Note: Sample model definition is available in [data/model.json](data/model.json)
 
 
+## Contributing
+
+Interested in contributing to this project?
+You can log any issues or suggestion related to this library [here](https://github.com/arshadkazmi42/genql/issues/new)
+
+Read our contributing [guide](CONTRIBUTING.md) on getting started with contributing to the codebase
+
