@@ -9,7 +9,6 @@
 [![Commit](https://img.shields.io/github/last-commit/arshadkazmi42/genql.svg)](https://github.com/arshadkazmi42/genql/commits/master)
 
 
-[![Build Status](https://api.travis-ci.com/arshadkazmi42/genql.svg?branch=master)](https://api.travis-ci.com/arshadkazmi42/genql)
 
 Helper for SQL query generating and formatting
 
